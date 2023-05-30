@@ -1,0 +1,36 @@
+# Maintainer: Miklos Kovacs <fulcrum at kovacsmiki dot com>
+pkgname=kovacsmiki-repository
+pkgver=20230530
+pkgrel=1
+pkgdesc="kovacsmiki pacman repository"
+arch=('any')
+url='https://github.com/mortyr45/pacman-repository'
+license=('MIT')
+options=(!strip !emptydirs)
+install='kovacsmiki-repository.install'
+source=(
+    'license.txt'
+    'Makefile'
+    'kovacsmiki.gpg'
+    'kovacsmiki-revoked'
+    'kovacsmiki-trusted'
+    'kovacsmiki-repository.conf'
+    'kovacsmiki-repository.install'
+)
+validpgpkeys=(
+    '75E1C18849188C607AE85D0B2829C5029D612D94' #fulcrum
+)
+b2sums=('75f412f8230805994ee90ab444f5d5fb95bda786617cd4307c60c6d2cadde0097056260e3ab6032595589231df6bfb555dac3a4bb673c23b23bae81033268f57'
+        '1cafdcb700a6f97f2ca9fbbfd05197a068eb279b2410557670fbeb796f4d8546d02865dc735b2b186577fbb993d51a33c939eacbd535a867645b58df254c5528'
+        '3e2318d520591313cbda6905db92a0432d724e8b84b9ed9bfdb8bdf46d75c0c6aabce7ae73ec6f0a4b211f0bdac8fb126cd457d9958917fa1494534905971dd0'
+        '786a02f742015903c6c6fd852552d272912f4740e15847618a86e217f71f5419d25e1031afee585313896444934eb04b903a685b1448b755d56f701afe9be2ce'
+        '62d8892ec931c5b1f11a71c73549e9137699ec769946ee133571089caae6983692fd99855e11ea10cc13fa57819d384b627834b0f857f2a23a189e33efddaa4f'
+        '1b00ab918e69bcc180d51281cf4380b8e2cd938ae1c539c9b84a2cbc8917e7613f2f2e8155fe69f70809cadf6fa7dec748b6faef9ee8e35adea97f1ef70697aa'
+        '76078b411b32057e98d29f67d19ab203d9b4e638c1f8fb45418f75c8e9a28c01a7d65df760636320325e1c276c52de58fd2dc42c7793ae69ad969721a4f9a61f')
+
+package() {
+    cd "${srcdir}"
+    install -Dm644 "kovacsmiki-repository.conf" "$pkgdir/etc/pacman.d/kovacsmiki-repository.conf"
+	make PREFIX=/usr DESTDIR=${pkgdir} install
+    install -Dm644 license.txt "$pkgdir/usr/share/licenses/$pkgname/license.txt"
+}

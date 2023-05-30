@@ -1,0 +1,57 @@
+run-name: Build ${{ github.event.inputs.build_type }} ${{ github.event.inputs.target_name }}.
+on:
+    workflow_dispatch:
+        inputs:
+            build_type:
+                type: choice
+                description: Set if the build target is a list or a package.
+                options:
+                    - l
+                    - p
+                required: true
+            target_name:
+                type: string
+                description: The name of the package to test build.
+                required: true
+    workflow_call:
+        inputs:
+            build_type:
+                type: string
+                default: l
+            target_name:
+                type: string
+                description: The package list to build (default is _all).
+                default: _all
+        outputs:
+            artifact_name:
+                description: "The name of the produced artifact bundle."
+                value: ${{ jobs.build.outputs.artifact_name }}
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        outputs:
+          artifact_name: ${{ steps.output-artifact_name.outputs.ARTIFACT_NAME }}
+        steps:
+            - uses: actions/checkout@v3
+            - run: |
+                out_dir=$(mktemp -d)
+                chmod 777 $out_dir
+                echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+                docker run --rm --pull always -t -v $(pwd)/packages:/tmp/workdir:ro -w /tmp/workdir -v $(pwd)/build_orders:/tmp/build_orders:ro -v $out_dir:/tmp/output:rw -v $(pwd)/docker/makepkg.conf:/etc/makepkg.conf:ro -v $(pwd)/docker/build_package.sh:/build_package.sh:ro ghcr.io/mortyr45/archlinux:devtools bash /build_package.sh -${{ inputs.build_type }} ${{ inputs.target_name }}
+                echo "OUT_DIR=$out_dir" >> $GITHUB_ENV
+                echo "ARTIFACT_NAME=built_packages" >> $GITHUB_ENV
+            - uses: crazy-max/ghaction-import-gpg@v5
+              with:
+                fingerprint: ${{ vars.GPG_FINGERPRINT }}
+                gpg_private_key: ${{ secrets.GPG_KEY }}
+                passphrase: ${{ secrets.GPG_PASSPHRASE }}
+                trust_level: 4
+            - run: for file in $(ls ${{ env.OUT_DIR }}/); do gpg --detach-sign --local-user ${{ vars.GPG_FINGERPRINT }} --passphrase ${{ secrets.GPG_PASSPHRASE }} ${{ env.OUT_DIR }}/$file ; done
+            - uses: actions/upload-artifact@v3
+              with:
+                name: ${{ env.ARTIFACT_NAME }}
+                path: "${{ env.OUT_DIR }}/"
+                if-no-files-found: error
+            - id: output-artifact_name
+              run: echo "ARTIFACT_NAME=${{ env.ARTIFACT_NAME }}" >> $GITHUB_OUTPUT

@@ -1,0 +1,15 @@
+post_upgrade() {
+    if usr/bin/pacman-key -l >/dev/null 2>&1; then
+        usr/bin/pacman-key --populate kovacsmiki
+    else
+        echo " >>> Run \`pacman-key --init\` to set up your pacman keyring."
+        echo " >>> Then run \`pacman-key --populate kovacsmiki\` to install the kovacsmiki keyring."
+    fi
+    echo " >>> Make sure your /etc/pacman.conf contains the following line:\n Include = /etc/pacman.d/kovacsmiki-repository.conf"
+}
+
+post_install() {
+    if [ -x usr/bin/pacman-key ]; then
+        post_upgrade
+    fi
+}

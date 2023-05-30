@@ -1,0 +1,27 @@
+# Maintainer: Miklos Kovacs <fulcrum at kovacsmiki dot com>
+pkgname=archlinux-devtools
+pkgver=20230520
+pkgrel=1
+pkgdesc="Metapackage for all of the archlinux developer toolkit."
+arch=('any')
+url="https://archlinux.org"
+license=('MIT')
+depends=(
+	'aurphan' 'base-devel' 'devtools' 'expac' 'namcap' 'pacman-contrib' 'pkgfile'
+	#archlinux-tools
+	'arch-rebuild-order' 'arch-repro-status' 'arch-signoff'
+)
+source=(
+	'license.txt'
+	'license.txt.sig'
+)
+validpgpkeys=(
+    '75E1C18849188C607AE85D0B2829C5029D612D94' #fulcrum
+)
+sha256sums=('ea3621525202007601ca63c883ebedd961c007fe9ec38e8f0a838cc101626079'
+            'SKIP')
+
+package() {
+    cd "${srcdir}"
+    install -Dm644 license.txt "$pkgdir/usr/share/licenses/$pkgname/license.txt"
+}

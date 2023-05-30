@@ -1,0 +1,14 @@
+kovacsmiki-repository
+archlinux-devtools
+auto-cpufreq
+iwgtk
+visual-studio-code-bin
+mozc
+ibus-mozc
+min
+cpu-x
+ttf-ms-fonts
+teamviewer
+liblcf
+easyrpg-player
+ani-cli
