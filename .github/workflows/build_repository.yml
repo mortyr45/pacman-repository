@@ -9,6 +9,8 @@ on:
                 type: string
                 default: kovacsmiki
 
+permissions: write-all
+
 jobs:
     build-package-list:
         uses: ./.github/workflows/build.yml
