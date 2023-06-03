@@ -15,7 +15,9 @@ sudo pacman-key --init
 ```
 Then install the repository package.
 ```bash
-sudo pacman -U https://pacman.kovacsmiki.com/repo-pkg
+sudo pacman -U [link]
+# get the link from the releases page.
+# eg.: https://pacman.kovacsmiki.com/x86_64/kovacsmiki-repository-20230530-1-any.pkg.tar.zst
 ```
 Lastly, add the repository configuration to your /etc/pacman.conf
 ```bash
