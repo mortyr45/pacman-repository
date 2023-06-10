@@ -6,6 +6,7 @@ visual-studio-code-bin
 mozc
 ibus-mozc
 min
+rkdeveloptool
 cpu-x
 ttf-ms-fonts
 teamviewer
