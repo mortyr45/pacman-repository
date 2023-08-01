@@ -28,11 +28,10 @@ on:
                 value: ${{ jobs.build.outputs.artifact_name }}
     pull_request:
         types: [opened, synchronize]
-        branches:
-            - 'package/**'
 
 jobs:
     build:
+        if: github.event_name != 'pull_request' || startsWith(github.head_ref, 'package/')
         runs-on: ubuntu-latest
         outputs:
           artifact_name: ${{ steps.output-artifact_name.outputs.ARTIFACT_NAME }}
