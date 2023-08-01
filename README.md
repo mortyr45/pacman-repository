@@ -24,7 +24,7 @@ Lastly, add the repository configuration to your /etc/pacman.conf
 Include = /etc/pacman.d/kovacsmiki-repository.conf
 ```
 
-## Packages in the repositorys
+## Packages in the repository
 
 Most packages in the repository are not modified in any way. If they are, or there is any additional information about a package, it will be written in the following list:
 
