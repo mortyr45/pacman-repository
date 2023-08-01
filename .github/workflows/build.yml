@@ -26,7 +26,7 @@ on:
             artifact_name:
                 description: "The name of the produced artifact bundle."
                 value: ${{ jobs.build.outputs.artifact_name }}
-    pull_request_target:
+    pull_request:
         types: [opened, synchronize]
         branches:
             - 'package/**'
@@ -38,12 +38,12 @@ jobs:
           artifact_name: ${{ steps.output-artifact_name.outputs.ARTIFACT_NAME }}
         steps:
             - uses: actions/checkout@v3
-            - if: github.event_name == 'pull_request_target'
+            - if: github.event_name == 'pull_request'
               run: |
                 echo "BUILD_TYPE=p" >> $GITHUB_ENV
                 ref_name="${{ github.ref_name }}"
                 echo "TARGET_NAME=${ref_name##*/}" >> $GITHUB_ENV
-            - if: github.event_name != 'pull_request_target'
+            - if: github.event_name != 'pull_request'
               run: |
                 echo "BUILD_TYPE=${{ inputs.build_type }}" >> $GITHUB_ENV
                 echo "TARGET_NAME=${{ inputs.target_name }}" >> $GITHUB_ENV
