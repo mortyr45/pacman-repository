@@ -2,6 +2,7 @@ kovacsmiki-repository
 archlinux-devtools
 auto-cpufreq
 iwgtk
+gnome-shell-extension-material-shell
 visual-studio-code-bin
 mozc
 ibus-mozc
