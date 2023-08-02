@@ -22,7 +22,9 @@ _uuid="material-shell@papyelgringo"
 build() {
     cd "${srcdir}/${_dir}"
     npm install --cache "${srcdir}/npm-cache"
-    make compile
+    # -j1 is fix for failing builds when a make subroutine starts
+    # earlier than desired
+    make -j1 compile
 }
 
 package() {
