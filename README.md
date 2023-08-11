@@ -34,6 +34,7 @@ ani-cli|[Archlinux AUR](https://aur.archlinux.org/packages/ani-cli)|Watch anime 
 archlinux-devtools|Own|Metapackage for various archlinux tools.
 auto-cpufreq|[Archlinux AUR](https://aur.archlinux.org/packages/auto-cpufreq)|Automatic CPU speed & power optimizer.
 cpu-x|[Archlinux AUR](https://aur.archlinux.org/packages/cpu-x)|A Free software that gathers information on CPU, motherboard and more.
+defold|[Archlinux AUR](https://aur.archlinux.org/packages/defold)|Defold is a completely free to use game engine for development of desktop, mobile and web games.
 easyrpg-player|[Archlinux AUR](https://aur.archlinux.org/packages/easyrpg-player)|Plays RPG Maker 2000/2003 games.
 gnome-shell-extension-material-shell|[Archlinux AUR](https://aur.archlinux.org/packages/gnome-shell-extension-material-shell)|A modern desktop interface for Linux extending GNOME Shell.
 kovacsmiki-repository|Own|Package for the kovacsmiki repository.
