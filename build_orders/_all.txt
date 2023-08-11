@@ -11,6 +11,7 @@ rkdeveloptool
 cpu-x
 ttf-ms-fonts
 teamviewer
+defold
 liblcf
 easyrpg-player
 ani-cli
