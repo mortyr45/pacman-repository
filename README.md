@@ -6,22 +6,19 @@ The packages hosted are built without proper testing. **Use at your own risk!**
 
 ## How to use the repository
 
-First you need to install the gpg key used to sign all the packages in the repository.
+Download and then install the repository package.
 ```bash
-sudo pacman-key --recv-keys 2829C5029D612D94
-sudo pacman-key --lsign 2829C5029D612D94
-# If your receive an error stating no secret key available, run the following command, then the previous once more:
-sudo pacman-key --init
+wget https://pacman.kovacsmiki.com/x86_64/kovacsmiki-repository-20230530-1-any.pkg.tar.zst
+sudo pacman -U kovacsmiki-repository-20230530-1-any.pkg.tar.zst
 ```
-Then install the repository package.
-```bash
-sudo pacman -U [link]
-# get the link from the releases page.
-# eg.: https://pacman.kovacsmiki.com/x86_64/kovacsmiki-repository-20230530-1-any.pkg.tar.zst
-```
-Lastly, add the repository configuration to your /etc/pacman.conf
+Add the repository configuration to your /etc/pacman.conf
 ```bash
 Include = /etc/pacman.d/kovacsmiki-repository.conf
+```
+
+Lastly, do a system upgrade.
+```bash
+sudo pacman -Syu
 ```
 
 ## Packages in the repository
