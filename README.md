@@ -43,4 +43,5 @@ mozc|[Archlinux AUR](https://aur.archlinux.org/packages/mozc)|Japanese input.
 rkdeveloptool|[Archlinux AUR](https://aur.archlinux.org/packages/rkdeveloptool)|Development tool for Rockchip SOC.
 teamviewer|[Archlinux AUR](https://aur.archlinux.org/packages/teamviewer)|All-In-One Software for Remote Support and Online Meetings.
 ttf-ms-fonts|[Archlinux AUR](https://aur.archlinux.org/packages/ttf-ms-fonts)|Core TTF Fonts from Microsoft.
+tufw-git|[Archlinux AUR](https://aur.archlinux.org/packages/tufw-git)|Terminal UI for ufw.
 visual-studio-code-bin|[Archlinux AUR](https://aur.archlinux.org/packages/visual-studio-code-bin)|Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version)
