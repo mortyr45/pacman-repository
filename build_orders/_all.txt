@@ -1,6 +1,7 @@
 kovacsmiki-repository
 archlinux-devtools
 auto-cpufreq
+tufw
 iwgtk
 gnome-shell-extension-material-shell
 visual-studio-code-bin
