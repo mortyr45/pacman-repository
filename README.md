@@ -8,8 +8,8 @@ The packages hosted are built without proper testing. **Use at your own risk!**
 
 Download and then install the repository package.
 ```bash
-wget https://pacman.kovacsmiki.com/x86_64/kovacsmiki-repository-20230530-1-any.pkg.tar.zst
-sudo pacman -U kovacsmiki-repository-20230530-1-any.pkg.tar.zst
+wget https://pacman.kovacsmiki.com/x86_64/kovacsmiki-repository-20230823-1-any.pkg.tar.zst
+sudo pacman -U kovacsmiki-repository-20230823-1-any.pkg.tar.zst
 ```
 Add the repository configuration to your /etc/pacman.conf
 ```bash
