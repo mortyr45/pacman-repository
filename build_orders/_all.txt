@@ -11,6 +11,7 @@ min
 rkdeveloptool
 cpu-x
 ttf-ms-fonts
+openvpn-update-systemd-resolved
 teamviewer
 defold
 liblcf
