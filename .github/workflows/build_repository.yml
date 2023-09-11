@@ -27,7 +27,7 @@ jobs:
                 name: ${{ needs.build-package-list.outputs.artifact_name }}
                 path: ./package_files
             - run: chmod 777 ./package_files
-            - uses: crazy-max/ghaction-import-gpg@v5
+            - uses: crazy-max/ghaction-import-gpg@v6
               with:
                 fingerprint: ${{ vars.GPG_FINGERPRINT }}
                 gpg_private_key: ${{ secrets.GPG_KEY }}
