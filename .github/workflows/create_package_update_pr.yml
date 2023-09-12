@@ -11,6 +11,7 @@ jobs:
         steps:
             - run: |
                 wget https://aur.archlinux.org/cgit/aur.git/snapshot/${{ inputs.package_name }}.tar.gz
+                ls
                 tar --overwrite -xf visual-studio-code-bin.tar.gz -C ${{ inputs.package_name }} --strip-components=1
                 packages/${{ inputs.package_name }}
                 pkgver=$(cat .SRCINFO | grep pkgver | cut -d' ' -f 3)
