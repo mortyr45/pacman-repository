@@ -18,6 +18,7 @@ jobs:
                 git checkout package/${{ inputs.package_name }}
                 git add .
                 git commit -m "${{ inputs.package_name }} v$pkgver-$pkgrel"
+                git push
                 gh pr create -B master -H package/${{ inputs.package_name }} --title "${{ inputs.package_name }} v$pkgver-$pkgrel" --body 'Created by Github action'
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
