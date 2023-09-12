@@ -1,0 +1,23 @@
+on:
+    workflow_dispatch:
+        inputs:
+            package_name:
+                type: string
+                required: true
+
+jobs:
+    create_pr:
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                wget https://aur.archlinux.org/cgit/aur.git/snapshot/${{ inputs.package_name }}.tar.gz
+                tar --overwrite -xf visual-studio-code-bin.tar.gz -C packages/${{ inputs.package_name }} --strip-components=1
+                packages/${{ inputs.package_name }}
+                pkgver=$(cat .SRCINFO | grep pkgver | cut -d' ' -f 3)
+                pkgrel=$(cat .SRCINFO | grep pkgrel | cut -d' ' -f 3)
+                git checkout package/${{ inputs.package_name }}
+                git add .
+                git commit -m "${{ inputs.package_name }} v$pkgver-$pkgrel"
+                gh pr create -B master -H package/${{ inputs.package_name }} --title "${{ inputs.package_name }} v$pkgver-$pkgrel" --body 'Created by Github action'
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
