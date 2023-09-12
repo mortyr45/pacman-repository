@@ -17,7 +17,7 @@ jobs:
                 cd packages/${{ inputs.package_name }}
                 pkgver=$(cat .SRCINFO | grep pkgver | cut -d' ' -f 3)
                 pkgrel=$(cat .SRCINFO | grep pkgrel | cut -d' ' -f 3)
-                git checkout package/${{ inputs.package_name }}
+                git checkout -b package/${{ inputs.package_name }}
                 git add .
                 git commit -m "${{ inputs.package_name }} v$pkgver-$pkgrel"
                 git push
