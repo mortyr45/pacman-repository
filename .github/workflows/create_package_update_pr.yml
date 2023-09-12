@@ -16,11 +16,22 @@ jobs:
                 tar --overwrite -xf ${{ inputs.package_name }}.tar.gz -C packages/${{ inputs.package_name }} --strip-components=1
                 cd packages/${{ inputs.package_name }}
                 pkgver=$(cat .SRCINFO | grep pkgver | cut -d' ' -f 3)
+                echo "PKGVER=$pkgver" >> $GITHUB_ENV
                 pkgrel=$(cat .SRCINFO | grep pkgrel | cut -d' ' -f 3)
-                git checkout -b package/${{ inputs.package_name }}
-                git add .
-                git commit -m "${{ inputs.package_name }} v$pkgver-$pkgrel"
-                git push
-                gh pr create -B master -H package/${{ inputs.package_name }} --title "${{ inputs.package_name }} v$pkgver-$pkgrel" --body 'Created by Github action'
+                echo "PKGREL=$pkgrel" >> $GITHUB_ENV
+                #git checkout -b package/${{ inputs.package_name }}
+                #git add .
+                #git commit -m "${{ inputs.package_name }} v$pkgver-$pkgrel"
+                #git push
+                #gh pr create -B master -H package/${{ inputs.package_name }} --title "${{ inputs.package_name }} v$pkgver-$pkgrel" --body 'Created by Github action'
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - uses: peter-evans/create-pull-request@v5
+              with:
+                add-paths: |
+                    packages/*
+                commit-message: "${{ inputs.package_name }} v${{ env.PKGVER }}-${{ env.PKGREL }}"
+                branch: "package/${{ inputs.package_name }}"
+                base: master
+                title: "${{ inputs.package_name }} v${{ env.PKGVER }}-${{ env.PKGREL }}"
+                body: ""
