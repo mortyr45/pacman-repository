@@ -36,3 +36,4 @@ jobs:
                 base: master
                 title: "${{ inputs.package_name }} v${{ env.PKGVER }}-${{ env.PKGREL }}"
                 body: ""
+                assignees: mortyr45
