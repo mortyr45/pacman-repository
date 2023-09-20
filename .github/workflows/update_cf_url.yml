@@ -8,7 +8,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - run: |
-                CLOUDFLARE_EMAIL=${{ secrets.CF_EMAIL }}
                 CLOUDFLARE_API_TOKEN=${{ secrets.CF_API_TOKEN }}
                 RELEASE_ID=${{ github.event.release.id }}
                 RELEASE_NAME=${{ github.event.release.name }}
@@ -18,7 +17,6 @@ jobs:
                 NEW_SETTINGS='{"forwarding_url": {"url": "https://github.com/mortyr45/pacman-repository/releases/download/'"$RELEASE_NAME"'/$1", "status_code": 301}}'
 
                 curl -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/pagerules/$PAGE_RULE_ID" \
-                    -H "X-Auth-Email: $CLOUDFLARE_EMAIL" \
                     -H "X-Auth-Key: $CLOUDFLARE_API_TOKEN" \
                     -H "Content-Type: application/json" \
                     --data '{"targets": [{"target": "url", "constraint": {"operator": "matches", "value": "'"$NEW_URL_PATTERN"'"}}], "actions": ['"$NEW_SETTINGS"'], "priority": 1, "status": "active"}'
