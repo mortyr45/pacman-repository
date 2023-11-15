@@ -7,6 +7,7 @@ gnome-shell-extension-material-shell
 visual-studio-code-bin
 mozc
 ibus-mozc
+stripe-cli
 min
 rkdeveloptool
 cpu-x

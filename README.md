@@ -42,6 +42,7 @@ min|[Archlinux AUR](https://aur.archlinux.org/packages/min)|A fast, minimal brow
 mozc|[Archlinux AUR](https://aur.archlinux.org/packages/mozc)|Japanese input.
 openvpn-update-systemd-resolved|[Archlinux AUR](https://aur.archlinux.org/packages/openvpn-update-systemd-resolved)|OpenVPN systemd-resolved Updater.
 rkdeveloptool|[Archlinux AUR](https://aur.archlinux.org/packages/rkdeveloptool)|Development tool for Rockchip SOC.
+stripe-cli|[Archlinux AUR](https://aur.archlinux.org/packages/stripe-cli)|CLI for Stripe.
 teamviewer|[Archlinux AUR](https://aur.archlinux.org/packages/teamviewer)|All-In-One Software for Remote Support and Online Meetings.
 ttf-ms-fonts|[Archlinux AUR](https://aur.archlinux.org/packages/ttf-ms-fonts)|Core TTF Fonts from Microsoft.
 tufw|Own|Terminal UI for ufw.
