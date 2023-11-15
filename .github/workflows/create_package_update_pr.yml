@@ -1,34 +1,34 @@
 on:
-    workflow_dispatch:
-        inputs:
-            package_name:
-                type: string
-                required: true
+  workflow_dispatch:
+    inputs:
+      package_name:
+        type: string
+        required: true
 
 jobs:
-    create_pr:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - run: |
-                wget https://aur.archlinux.org/cgit/aur.git/snapshot/${{ inputs.package_name }}.tar.gz
-                ls
-                tar --overwrite -xf ${{ inputs.package_name }}.tar.gz -C packages/${{ inputs.package_name }} --strip-components=1
-                cd packages/${{ inputs.package_name }}
-                pkgver=$(cat .SRCINFO | grep pkgver | cut -d' ' -f 3)
-                echo "PKGVER=$pkgver" >> $GITHUB_ENV
-                pkgrel=$(cat .SRCINFO | grep pkgrel | cut -d' ' -f 3)
-                echo "PKGREL=$pkgrel" >> $GITHUB_ENV
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            - uses: peter-evans/create-pull-request@v5
-              with:
-                token: ${{ secrets.REPO_TOKEN }}
-                add-paths: |
-                    packages/*
-                commit-message: "${{ inputs.package_name }} v${{ env.PKGVER }}-${{ env.PKGREL }}"
-                branch: "package/${{ inputs.package_name }}"
-                base: master
-                title: "${{ inputs.package_name }} v${{ env.PKGVER }}-${{ env.PKGREL }}"
-                body: ""
-                assignees: mortyr45
+  create_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          wget https://aur.archlinux.org/cgit/aur.git/snapshot/${{ inputs.package_name }}.tar.gz
+          ls
+          tar --overwrite -xf ${{ inputs.package_name }}.tar.gz -C packages/${{ inputs.package_name }} --strip-components=1
+          cd packages/${{ inputs.package_name }}
+          pkgver=$(cat .SRCINFO | grep pkgver | cut -d' ' -f 3)
+          echo "PKGVER=$pkgver" >> $GITHUB_ENV
+          pkgrel=$(cat .SRCINFO | grep pkgrel | cut -d' ' -f 3)
+          echo "PKGREL=$pkgrel" >> $GITHUB_ENV
+          env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.REPO_TOKEN }}
+          add-paths: |
+            packages/*
+          commit-message: "${{ inputs.package_name }} v${{ env.PKGVER }}-${{ env.PKGREL }}"
+          branch: "package/${{ inputs.package_name }}"
+          base: master
+          title: "${{ inputs.package_name }} v${{ env.PKGVER }}-${{ env.PKGREL }}"
+          body: ""
+          assignees: mortyr45

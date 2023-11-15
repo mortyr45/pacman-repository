@@ -1,55 +1,55 @@
 run-name: Build repository ${{ inputs.repository_name }} with list ${{ inputs.package_list }}.
 on:
-    workflow_dispatch:
-        inputs:
-            package_list:
-                type: string
-                default: _all
-            repository_name:
-                type: string
-                default: kovacsmiki
+  workflow_dispatch:
+    inputs:
+      package_list:
+        type: string
+        default: _all
+      repository_name:
+        type: string
+        default: kovacsmiki
 
 permissions: write-all
 
 jobs:
-    build-package-list:
-        uses: ./.github/workflows/build.yml
+  build-package-list:
+    uses: ./.github/workflows/build.yml
+    with:
+      target_name: ${{ inputs.package_list }}
+    secrets: inherit
+  build-repository:
+    runs-on: ubuntu-latest
+    needs: build-package-list
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v3
         with:
-          target_name: ${{ inputs.package_list }}
-        secrets: inherit
-    build-repository:
-        runs-on: ubuntu-latest
-        needs: build-package-list
-        steps:
-            - uses: actions/checkout@v4
-            - uses: actions/download-artifact@v3
-              with:
-                name: ${{ needs.build-package-list.outputs.artifact_name }}
-                path: ./package_files
-            - run: chmod 777 ./package_files
-            - uses: crazy-max/ghaction-import-gpg@v6
-              with:
-                fingerprint: ${{ vars.GPG_FINGERPRINT }}
-                gpg_private_key: ${{ secrets.GPG_KEY }}
-                passphrase: ${{ secrets.GPG_PASSPHRASE }}
-                trust_level: 4
-            - run: |
-                echo "repo-add /data/${{ inputs.repository_name }}.db.tar.zst /data/*.pkg.tar.zst" > script.sh
-                echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-                docker run --rm --pull always -t -v $(pwd)/package_files:/data:rw -v $(pwd)/script.sh:/script.sh ghcr.io/mortyr45/archlinux:devtools bash /script.sh
-            - run: |
-                cd ./package_files
-                rm ${{ inputs.repository_name }}.{db,files}
-                mv ${{ inputs.repository_name }}.db.tar.zst ${{ inputs.repository_name }}.db
-                mv ${{ inputs.repository_name }}.files.tar.zst ${{ inputs.repository_name }}.files
-                gpg --detach-sign --local-user ${{ vars.GPG_FINGERPRINT }} --passphrase ${{ secrets.GPG_PASSPHRASE }} ${{ inputs.repository_name }}.db
-                gpg --detach-sign --local-user ${{ vars.GPG_FINGERPRINT }} --passphrase ${{ secrets.GPG_PASSPHRASE }} ${{ inputs.repository_name }}.files
-                cd -
-            - uses: Hs1r1us/Release-AIO@v2.0.0
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                tag_name: ${{ github.sha }}
-                release_name: ${{ github.sha }}
-                asset_files: ./package_files
-                draft: true
+          name: ${{ needs.build-package-list.outputs.artifact_name }}
+          path: ./package_files
+      - run: chmod 777 ./package_files
+      - uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          fingerprint: ${{ vars.GPG_FINGERPRINT }}
+          gpg_private_key: ${{ secrets.GPG_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          trust_level: 4
+      - run: |
+          echo "repo-add /data/${{ inputs.repository_name }}.db.tar.zst /data/*.pkg.tar.zst" > script.sh
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+          docker run --rm --pull always -t -v $(pwd)/package_files:/data:rw -v $(pwd)/script.sh:/script.sh ghcr.io/mortyr45/archlinux:devtools bash /script.sh
+      - run: |
+          cd ./package_files
+          rm ${{ inputs.repository_name }}.{db,files}
+          mv ${{ inputs.repository_name }}.db.tar.zst ${{ inputs.repository_name }}.db
+          mv ${{ inputs.repository_name }}.files.tar.zst ${{ inputs.repository_name }}.files
+          gpg --detach-sign --local-user ${{ vars.GPG_FINGERPRINT }} --passphrase ${{ secrets.GPG_PASSPHRASE }} ${{ inputs.repository_name }}.db
+          gpg --detach-sign --local-user ${{ vars.GPG_FINGERPRINT }} --passphrase ${{ secrets.GPG_PASSPHRASE }} ${{ inputs.repository_name }}.files
+          cd -
+      - uses: Hs1r1us/Release-AIO@v2.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.sha }}
+          release_name: ${{ github.sha }}
+          asset_files: ./package_files
+          draft: true
