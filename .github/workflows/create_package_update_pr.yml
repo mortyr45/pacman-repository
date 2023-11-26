@@ -19,7 +19,7 @@ jobs:
           echo "PKGVER=$pkgver" >> $GITHUB_ENV
           pkgrel=$(cat .SRCINFO | grep pkgrel | cut -d' ' -f 3)
           echo "PKGREL=$pkgrel" >> $GITHUB_ENV
-          env:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: peter-evans/create-pull-request@v5
         with:
