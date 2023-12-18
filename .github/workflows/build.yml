@@ -59,7 +59,7 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           trust_level: 4
       - run: for file in $(ls ${{ env.OUT_DIR }}/); do gpg --detach-sign --local-user ${{ vars.GPG_FINGERPRINT }} --passphrase ${{ secrets.GPG_PASSPHRASE }} ${{ env.OUT_DIR }}/$file ; done
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: "${{ env.OUT_DIR }}/"
