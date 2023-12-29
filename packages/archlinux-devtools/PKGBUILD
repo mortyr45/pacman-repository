@@ -1,13 +1,13 @@
 # Maintainer: Miklos Kovacs <fulcrum at kovacsmiki dot com>
 pkgname=archlinux-devtools
-pkgver=20230520
+pkgver=20231229
 pkgrel=1
 pkgdesc="Metapackage for all of the archlinux developer toolkit."
 arch=('any')
 url="https://archlinux.org"
 license=('MIT')
 depends=(
-	'aurphan' 'base-devel' 'devtools' 'expac' 'namcap' 'pacman-contrib' 'pkgfile'
+	'base-devel' 'devtools' 'expac' 'namcap' 'pacman-contrib' 'pkgfile'
 	#archlinux-tools
 	'arch-rebuild-order' 'arch-repro-status' 'arch-signoff'
 )
