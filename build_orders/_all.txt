@@ -9,6 +9,7 @@ mozc
 ibus-mozc
 stripe-cli
 min
+mullvad-vpn
 rkdeveloptool
 cpu-x
 ttf-ms-fonts
