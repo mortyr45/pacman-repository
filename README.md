@@ -40,6 +40,7 @@ iwgtk|[Archlinux AUR](https://aur.archlinux.org/packages/iwgtk)|Lightweight wire
 liblcf|[Archlinux AUR](https://aur.archlinux.org/packages/liblcf)|Dependency of easyrpg-player.
 min|[Archlinux AUR](https://aur.archlinux.org/packages/min)|A fast, minimal browser that protects your privacy.
 mozc|[Archlinux AUR](https://aur.archlinux.org/packages/mozc)|Japanese input.
+mullvad-vpn|[Archlinux AUR](https://aur.archlinux.org/packages/mullvad-vpn)|The Mullvad VPN client app for desktop.
 openvpn-update-systemd-resolved|[Archlinux AUR](https://aur.archlinux.org/packages/openvpn-update-systemd-resolved)|OpenVPN systemd-resolved Updater.
 rkdeveloptool|[Archlinux AUR](https://aur.archlinux.org/packages/rkdeveloptool)|Development tool for Rockchip SOC.
 stripe-cli|[Archlinux AUR](https://aur.archlinux.org/packages/stripe-cli)|CLI for Stripe.
