@@ -8,7 +8,6 @@ visual-studio-code-bin
 mozc
 ibus-mozc
 stripe-cli
-min
 rkdeveloptool
 cpu-x
 ttf-ms-fonts
