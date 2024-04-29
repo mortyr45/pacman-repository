@@ -17,3 +17,4 @@ defold
 liblcf
 easyrpg-player
 ani-cli
+xone-dkms

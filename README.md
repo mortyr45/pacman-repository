@@ -47,3 +47,4 @@ teamviewer|[Archlinux AUR](https://aur.archlinux.org/packages/teamviewer)|All-In
 ttf-ms-fonts|[Archlinux AUR](https://aur.archlinux.org/packages/ttf-ms-fonts)|Core TTF Fonts from Microsoft.
 tufw|Own|Terminal UI for ufw.
 visual-studio-code-bin|[Archlinux AUR](https://aur.archlinux.org/packages/visual-studio-code-bin)|Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version).
+xone-dkms|[Archlinux AUR](https://aur.archlinux.org/packages/xone-dkms)|Modern Linux driver for Xbox One and Xbox Series X|S controllers
