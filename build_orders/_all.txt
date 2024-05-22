@@ -1,5 +1,4 @@
 kovacsmiki-repository
-archlinux-devtools
 auto-cpufreq
 tufw
 iwgtk
