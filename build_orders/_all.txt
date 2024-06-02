@@ -13,6 +13,4 @@ ttf-ms-fonts
 openvpn-update-systemd-resolved
 teamviewer
 defold
-liblcf
-easyrpg-player
 ani-cli
