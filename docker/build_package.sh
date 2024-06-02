@@ -24,7 +24,7 @@ fn_install_dependencies() {
         item="${item//>}"
         pacman -Si $item > /dev/null && repo_package_list+=" $item" || aur_package_list+=" $item"
     done
-    sudo pacman -S --noconfirm $repo_package_list
+    sudo pacman -Syu --noconfirm $repo_package_list
     for item in $aur_package_list; do
         fn_install_aur_package "$item"
     done
