@@ -14,3 +14,4 @@ openvpn-update-systemd-resolved
 teamviewer
 defold
 ani-cli
+xone-dkms
