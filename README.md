@@ -33,17 +33,13 @@ auto-cpufreq|[Archlinux AUR](https://aur.archlinux.org/packages/auto-cpufreq)|Au
 cpu-x|[Archlinux AUR](https://aur.archlinux.org/packages/cpu-x)|A Free software that gathers information on CPU, motherboard and more.
 defold|[Archlinux AUR](https://aur.archlinux.org/packages/defold)|Defold is a completely free to use game engine for development of desktop, mobile and web games.
 easyrpg-player|[Archlinux AUR](https://aur.archlinux.org/packages/easyrpg-player)|Plays RPG Maker 2000/2003 games.
-gnome-shell-extension-material-shell|[Archlinux AUR](https://aur.archlinux.org/packages/gnome-shell-extension-material-shell)|A modern desktop interface for Linux extending GNOME Shell.
 kovacsmiki-repository|Own|Package for the kovacsmiki repository.
-ibus-mozc|[Archlinux AUR](https://aur.archlinux.org/packages/ibus-mozc)|Use mozc with ibus.
 iwgtk|[Archlinux AUR](https://aur.archlinux.org/packages/iwgtk)|Lightweight wireless networking GUI (front-end for iwd).
 liblcf|[Archlinux AUR](https://aur.archlinux.org/packages/liblcf)|Dependency of easyrpg-player.
 min|[Archlinux AUR](https://aur.archlinux.org/packages/min)|A fast, minimal browser that protects your privacy.
-mozc|[Archlinux AUR](https://aur.archlinux.org/packages/mozc)|Japanese input.
 openvpn-update-systemd-resolved|[Archlinux AUR](https://aur.archlinux.org/packages/openvpn-update-systemd-resolved)|OpenVPN systemd-resolved Updater.
 rkdeveloptool|[Archlinux AUR](https://aur.archlinux.org/packages/rkdeveloptool)|Development tool for Rockchip SOC.
 stripe-cli|[Archlinux AUR](https://aur.archlinux.org/packages/stripe-cli)|CLI for Stripe.
 teamviewer|[Archlinux AUR](https://aur.archlinux.org/packages/teamviewer)|All-In-One Software for Remote Support and Online Meetings.
 ttf-ms-fonts|[Archlinux AUR](https://aur.archlinux.org/packages/ttf-ms-fonts)|Core TTF Fonts from Microsoft.
-tufw|Own|Terminal UI for ufw.
 visual-studio-code-bin|[Archlinux AUR](https://aur.archlinux.org/packages/visual-studio-code-bin)|Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version).
