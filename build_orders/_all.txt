@@ -10,5 +10,3 @@ openvpn-update-systemd-resolved
 teamviewer
 defold
 ani-cli
-liblcf
-easyrpg-player
