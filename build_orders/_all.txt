@@ -2,6 +2,7 @@ kovacsmiki-repository
 auto-cpufreq
 iwgtk
 visual-studio-code-bin
+waypipe
 stripe-cli
 rkdeveloptool
 cpu-x

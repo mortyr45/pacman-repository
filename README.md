@@ -43,3 +43,4 @@ stripe-cli|[Archlinux AUR](https://aur.archlinux.org/packages/stripe-cli)|CLI fo
 teamviewer|[Archlinux AUR](https://aur.archlinux.org/packages/teamviewer)|All-In-One Software for Remote Support and Online Meetings.
 ttf-ms-fonts|[Archlinux AUR](https://aur.archlinux.org/packages/ttf-ms-fonts)|Core TTF Fonts from Microsoft.
 visual-studio-code-bin|[Archlinux AUR](https://aur.archlinux.org/packages/visual-studio-code-bin)|Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version).
+waypipe|[Archlinux AUR](https://aur.archlinux.org/packages/waypipe)|A proxy for Wayland protocol applications; like ssh -X
