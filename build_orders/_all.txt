@@ -1,4 +1,5 @@
 kovacsmiki-repository
+mkinitcpio-tailscale
 auto-cpufreq
 iwgtk
 visual-studio-code-bin
