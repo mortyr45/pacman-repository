@@ -42,8 +42,6 @@ jobs:
           rm ${{ inputs.repository_name }}.{db,files}
           mv ${{ inputs.repository_name }}.db.tar.zst ${{ inputs.repository_name }}.db
           mv ${{ inputs.repository_name }}.files.tar.zst ${{ inputs.repository_name }}.files
-          gpg --detach-sign --local-user ${{ vars.GPG_FINGERPRINT }} --passphrase ${{ secrets.GPG_PASSPHRASE }} ${{ inputs.repository_name }}.db
-          gpg --detach-sign --local-user ${{ vars.GPG_FINGERPRINT }} --passphrase ${{ secrets.GPG_PASSPHRASE }} ${{ inputs.repository_name }}.files
           cd -
       - uses: Hs1r1us/Release-AIO@v2.0.0
         env:
