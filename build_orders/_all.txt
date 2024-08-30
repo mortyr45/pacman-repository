@@ -1,6 +1,7 @@
 kovacsmiki-repository
 mkinitcpio-tailscale
 auto-cpufreq
+mkinitcpio-systemd-extras
 iwgtk
 visual-studio-code-bin
 waypipe
