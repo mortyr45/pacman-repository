@@ -1,4 +1,5 @@
 kovacsmiki-repository
+mkinitcpio-tailscale
 auto-cpufreq
 mkinitcpio-systemd-extras
 iwgtk

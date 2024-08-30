@@ -38,6 +38,7 @@ iwgtk|[Archlinux AUR](https://aur.archlinux.org/packages/iwgtk)|Lightweight wire
 liblcf|[Archlinux AUR](https://aur.archlinux.org/packages/liblcf)|Dependency of easyrpg-player.
 min|[Archlinux AUR](https://aur.archlinux.org/packages/min)|A fast, minimal browser that protects your privacy.
 mkinitcpio-systemd-extras|[Archlinux AUR](https://aur.archlinux.org/packages/mkinitcpio-systemd-extras)|Collection of mkinitcpio install hooks for systemd based initramfs
+mkinitcpio-tailscale|[Archlinux AUR](https://aur.archlinux.org/packages/mkinitcpio-tailscale)|mkinitcpio hook to launch Tailscale on systemd or busybox based initramfs
 openvpn-update-systemd-resolved|[Archlinux AUR](https://aur.archlinux.org/packages/openvpn-update-systemd-resolved)|OpenVPN systemd-resolved Updater.
 rkdeveloptool|[Archlinux AUR](https://aur.archlinux.org/packages/rkdeveloptool)|Development tool for Rockchip SOC.
 stripe-cli|[Archlinux AUR](https://aur.archlinux.org/packages/stripe-cli)|CLI for Stripe.
