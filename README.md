@@ -37,6 +37,7 @@ kovacsmiki-repository|Own|Package for the kovacsmiki repository.
 iwgtk|[Archlinux AUR](https://aur.archlinux.org/packages/iwgtk)|Lightweight wireless networking GUI (front-end for iwd).
 liblcf|[Archlinux AUR](https://aur.archlinux.org/packages/liblcf)|Dependency of easyrpg-player.
 min|[Archlinux AUR](https://aur.archlinux.org/packages/min)|A fast, minimal browser that protects your privacy.
+mkinitcpio-systemd-extras|[Archlinux AUR](https://aur.archlinux.org/packages/mkinitcpio-systemd-extras)|Collection of mkinitcpio install hooks for systemd based initramfs
 openvpn-update-systemd-resolved|[Archlinux AUR](https://aur.archlinux.org/packages/openvpn-update-systemd-resolved)|OpenVPN systemd-resolved Updater.
 rkdeveloptool|[Archlinux AUR](https://aur.archlinux.org/packages/rkdeveloptool)|Development tool for Rockchip SOC.
 stripe-cli|[Archlinux AUR](https://aur.archlinux.org/packages/stripe-cli)|CLI for Stripe.

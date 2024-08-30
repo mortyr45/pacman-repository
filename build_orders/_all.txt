@@ -1,5 +1,6 @@
 kovacsmiki-repository
 auto-cpufreq
+mkinitcpio-systemd-extras
 iwgtk
 visual-studio-code-bin
 waypipe
