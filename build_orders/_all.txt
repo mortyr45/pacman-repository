@@ -11,5 +11,6 @@ cpu-x
 ttf-ms-fonts
 openvpn-update-systemd-resolved
 teamviewer
+min
 defold
 ani-cli
