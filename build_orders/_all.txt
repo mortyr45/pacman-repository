@@ -14,3 +14,4 @@ teamviewer
 min
 defold
 ani-cli
+bambustudio-bin
