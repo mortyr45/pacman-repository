@@ -41,6 +41,7 @@ mkinitcpio-systemd-extras|[Archlinux AUR](https://aur.archlinux.org/packages/mki
 mkinitcpio-tailscale|[Archlinux AUR](https://aur.archlinux.org/packages/mkinitcpio-tailscale)|mkinitcpio hook to launch Tailscale on systemd or busybox based initramfs
 openvpn-update-systemd-resolved|[Archlinux AUR](https://aur.archlinux.org/packages/openvpn-update-systemd-resolved)|OpenVPN systemd-resolved Updater.
 rkdeveloptool|[Archlinux AUR](https://aur.archlinux.org/packages/rkdeveloptool)|Development tool for Rockchip SOC.
+rustdesk|[Archlinux AUR](https://aur.archlinux.org/packages/rustdesk)|Yet another remote desktop software, written in Rust. Works out of the box, no configuration required. Great alternative to TeamViewer and AnyDesk!
 stripe-cli|[Archlinux AUR](https://aur.archlinux.org/packages/stripe-cli)|CLI for Stripe.
 teamviewer|[Archlinux AUR](https://aur.archlinux.org/packages/teamviewer)|All-In-One Software for Remote Support and Online Meetings.
 ttf-ms-fonts|[Archlinux AUR](https://aur.archlinux.org/packages/ttf-ms-fonts)|Core TTF Fonts from Microsoft.
