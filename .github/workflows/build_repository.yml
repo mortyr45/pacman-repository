@@ -36,7 +36,7 @@ jobs:
       - run: |
           echo "repo-add /data/${{ inputs.repository_name }}.db.tar.zst /data/*.pkg.tar.zst" > script.sh
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-          docker run --rm --pull always -t -v $(pwd)/package_files:/data:rw -v $(pwd)/script.sh:/script.sh ghcr.io/mortyr45/archlinux:devtools bash /script.sh
+          docker run --rm --pull always -t -v $(pwd)/package_files:/data:rw -v $(pwd)/script.sh:/script.sh ghcr.io/mortyr45/pacman-repository:latest bash /script.sh
       - run: |
           cd ./package_files
           rm ${{ inputs.repository_name }}.{db,files}

@@ -5,8 +5,8 @@ on:
         type: choice
         description: Set if the build target is a list or a package.
         options:
-            - l
-            - p
+          - l
+          - p
         required: true
       target_name:
         type: string
@@ -49,7 +49,7 @@ jobs:
           out_dir=$(mktemp -d)
           chmod 777 $out_dir
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-          docker run --rm --pull always -t -v $(pwd)/packages:/tmp/workdir:ro -w /tmp/workdir -v $(pwd)/build_orders:/tmp/build_orders:ro -v $out_dir:/tmp/output:rw -v $(pwd)/docker/makepkg.conf:/etc/makepkg.conf:ro -v $(pwd)/docker/build_package.sh:/build_package.sh:ro ghcr.io/mortyr45/archlinux:devtools bash /build_package.sh -${{ env.BUILD_TYPE }} ${{ env.TARGET_NAME }}
+          docker run --rm --pull always -t -v $(pwd)/packages:/tmp/workdir:ro -w /tmp/workdir -v $(pwd)/build_orders:/tmp/build_orders:ro -v $out_dir:/tmp/output:rw -v $(pwd)/docker/makepkg.conf:/etc/makepkg.conf:ro -v $(pwd)/docker/build_package.sh:/build_package.sh:ro ghcr.io/mortyr45/pacman-repository:latest bash /build_package.sh -${{ env.BUILD_TYPE }} ${{ env.TARGET_NAME }}
           echo "OUT_DIR=$out_dir" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=built_packages" >> $GITHUB_ENV
       - uses: crazy-max/ghaction-import-gpg@v6
