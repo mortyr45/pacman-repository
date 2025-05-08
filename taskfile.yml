@@ -1,0 +1,10 @@
+version: "3"
+
+vars:
+  CONTAINER_TAG: builder:latest
+
+tasks:
+  build-container:
+    desc: "Builds a container."
+    cmds:
+      - docker build --pull --no-cache --tag {{.CONTAINER_TAG}} .
