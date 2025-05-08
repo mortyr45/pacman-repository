@@ -1,12 +1,10 @@
 kovacsmiki-repository
-mkinitcpio-tailscale
 auto-cpufreq
 mkinitcpio-systemd-extras
 iwgtk
 visual-studio-code-bin
 waypipe
 stripe-cli
-rkdeveloptool
 cpu-x
 ttf-ms-fonts
 openvpn-update-systemd-resolved
