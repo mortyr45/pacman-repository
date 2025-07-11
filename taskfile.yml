@@ -8,3 +8,8 @@ tasks:
     desc: "Builds a container."
     cmds:
       - docker build --pull --no-cache --tag {{.CONTAINER_TAG}} .
+
+  build-package:
+    desc: "Builds a package. Usage: 'task build-package -- <package name>'"
+    cmds:
+      - docker run --rm -v ./packages:/tmp/workdir -v ./output:/tmp/output {{.CONTAINER_TAG}} build_package -p {{.CLI_ARGS}}
