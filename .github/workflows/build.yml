@@ -35,7 +35,7 @@ jobs:
     outputs:
       artifact_name: ${{ steps.output-artifact_name.outputs.ARTIFACT_NAME }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - if: github.event_name == 'pull_request'
         run: |
           echo "BUILD_TYPE=p" >> $GITHUB_ENV
