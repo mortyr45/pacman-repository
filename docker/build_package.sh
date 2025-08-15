@@ -28,7 +28,9 @@ fn_install_dependencies() {
             aur_package_list+=" $item"
         fi
     done
-    sudo pacman -Syu --noconfirm $repo_package_list
+    if [[ -n "$repo_package_list" ]]; then
+        sudo pacman -Sy --noconfirm --needed $repo_package_list
+    fi
     for item in $aur_package_list; do
         fn_install_aur_package "$item"
     done
