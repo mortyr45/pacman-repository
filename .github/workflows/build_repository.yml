@@ -1,5 +1,7 @@
 run-name: Build repository ${{ inputs.repository_name }} with list ${{ inputs.package_list }}.
 on:
+  schedule:
+    - cron: "0 8 * * 6"
   workflow_dispatch:
     inputs:
       package_list:
@@ -50,4 +52,4 @@ jobs:
           tag_name: ${{ github.sha }}
           release_name: ${{ github.sha }}
           asset_files: ./package_files
-          draft: true
+          draft: ${{ github.event_name != 'schedule' }}
