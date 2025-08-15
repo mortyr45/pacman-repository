@@ -22,7 +22,11 @@ fn_install_dependencies() {
     for item in $package_list; do
         item="${item//<}"
         item="${item//>}"
-        pacman -Si $item > /dev/null && repo_package_list+=" $item" || aur_package_list+=" $item"
+        if pacman -Si "$item" >/dev/null 2>&1; then
+            repo_package_list+=" $item"
+        else
+            aur_package_list+=" $item"
+        fi
     done
     sudo pacman -Syu --noconfirm $repo_package_list
     for item in $aur_package_list; do
