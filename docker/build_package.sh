@@ -20,8 +20,7 @@ fn_install_dependencies() {
     local aur_package_list
     aur_package_list=""
     for item in $package_list; do
-        item="${item//<}"
-        item="${item//>}"
+        item="${item%%[<>=]*}"
         if pacman -Si "$item" >/dev/null 2>&1; then
             repo_package_list+=" $item"
         else
