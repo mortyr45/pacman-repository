@@ -20,8 +20,7 @@ fn_install_dependencies() {
     local aur_package_list
     aur_package_list=""
     for item in $package_list; do
-        item="${item//<}"
-        item="${item//>}"
+        item="${item%%[<>=]*}"
         pacman -Si $item > /dev/null && repo_package_list+=" $item" || aur_package_list+=" $item"
     done
     sudo pacman -Syu --noconfirm $repo_package_list
