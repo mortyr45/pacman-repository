@@ -21,9 +21,15 @@ fn_install_dependencies() {
     aur_package_list=""
     for item in $package_list; do
         item="${item%%[<>=]*}"
-        pacman -Si $item > /dev/null && repo_package_list+=" $item" || aur_package_list+=" $item"
+        if pacman -Si "$item" >/dev/null 2>&1; then
+            repo_package_list+=" $item"
+        else
+            aur_package_list+=" $item"
+        fi
     done
-    sudo pacman -Syu --noconfirm $repo_package_list
+    if [[ -n "$repo_package_list" ]]; then
+        sudo pacman -Sy --noconfirm --needed $repo_package_list
+    fi
     for item in $aur_package_list; do
         fn_install_aur_package "$item"
     done
