@@ -1,0 +1,22 @@
+name: Run update PRs for all packages
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 10 * * *"
+
+permissions: write-all
+
+jobs:
+  update-all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Trigger update workflow for each package
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for dir in packages/*; do
+            pkg="$(basename "$dir")"
+            gh workflow run create_package_update_pr.yml -F package_name="$pkg"
+          done
