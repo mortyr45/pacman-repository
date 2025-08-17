@@ -17,7 +17,7 @@ jobs:
   build-package-list:
     uses: ./.github/workflows/build.yml
     with:
-      target_name: ${{ inputs.package_list }}
+      target_name: ${{ github.event_name == 'schedule' && '_all' || inputs.package_list }}
     secrets: inherit
   build-repository:
     runs-on: ubuntu-latest
