@@ -11,3 +11,4 @@ teamviewer
 min
 defold
 ani-cli
+linux-bazzite-bin
