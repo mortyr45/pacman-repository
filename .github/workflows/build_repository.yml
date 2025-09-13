@@ -29,12 +29,6 @@ jobs:
           name: ${{ needs.build-package-list.outputs.artifact_name }}
           path: ./package_files
       - run: chmod 777 ./package_files
-      - uses: crazy-max/ghaction-import-gpg@v6
-        with:
-          fingerprint: ${{ vars.GPG_FINGERPRINT }}
-          gpg_private_key: ${{ secrets.GPG_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          trust_level: 4
       - run: |
           echo "repo-add /data/${{ inputs.repository_name }}.db.tar.zst /data/*.pkg.tar.zst" > script.sh
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
