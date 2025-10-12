@@ -1,4 +1,4 @@
-run-name: Build repository ${{ inputs.repository_name }} with list ${{ inputs.package_list }}.
+run-name: Build repository ${{ inputs.repository_name }} with list ${{ github.event_name == 'schedule' && '_all' || inputs.package_list }}.
 on:
   schedule:
     - cron: "0 8 * * 6"
@@ -17,7 +17,7 @@ jobs:
   build-package-list:
     uses: ./.github/workflows/build.yml
     with:
-      target_name: ${{ github.event_name == 'schedule' && '_all' || inputs.package_list }}
+      target_name: ${{ inputs.package_list || '_all' }}
     secrets: inherit
   build-repository:
     runs-on: ubuntu-latest
