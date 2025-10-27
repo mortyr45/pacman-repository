@@ -52,7 +52,7 @@ jobs:
           docker run --rm --pull always -t -v $(pwd)/packages:/tmp/workdir:ro -w /tmp/workdir -v $(pwd)/build_orders:/tmp/build_orders:ro -v $out_dir:/tmp/output:rw ghcr.io/mortyr45/pacman-repository:latest bash build_package -${{ env.BUILD_TYPE }} ${{ env.TARGET_NAME }}
           echo "OUT_DIR=$out_dir" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=built_packages" >> $GITHUB_ENV
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: "${{ env.OUT_DIR }}/"
