@@ -24,7 +24,7 @@ jobs:
     needs: build-package-list
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v6
         with:
           name: ${{ needs.build-package-list.outputs.artifact_name }}
           path: ./package_files
