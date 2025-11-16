@@ -7,7 +7,6 @@ waypipe
 stripe-cli
 ttf-ms-fonts
 openvpn-update-systemd-resolved
-teamviewer
 min
 defold
 ani-cli
