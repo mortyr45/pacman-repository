@@ -7,7 +7,6 @@ waypipe
 stripe-cli
 ttf-ms-fonts
 openvpn-update-systemd-resolved
-min
 defold
 ani-cli
 linux-bazzite-bin
