@@ -3,6 +3,7 @@ auto-cpufreq
 mkinitcpio-systemd-extras
 iwgtk
 gitbutler-bin
+gitbutler-cli-bin
 visual-studio-code-bin
 waypipe
 stripe-cli
