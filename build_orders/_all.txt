@@ -2,6 +2,7 @@ kovacsmiki-repository
 auto-cpufreq
 mkinitcpio-systemd-extras
 iwgtk
+gitbutler-bin
 visual-studio-code-bin
 waypipe
 stripe-cli
